@@ -25,4 +25,5 @@ model User {
   title String
   done Boolean @default(false)
   description String?
+  userID Int @unique
  }
