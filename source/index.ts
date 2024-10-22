@@ -45,8 +45,8 @@ async function updateUser (email:string,{firstName ,lastName}:updatePara){
         })
         console.log(res);
 }
-// updateUser("sukhvir@gmail.com",{
-//     firstName:"Honey" ,
-//     lastName:"Singh"
-// });
-// getUser();
+updateUser("sukhvir@gmail.com",{
+    firstName:"Honey" ,
+    lastName:"Singh"
+});
+getUser();
