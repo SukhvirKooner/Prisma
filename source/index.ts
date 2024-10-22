@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { get } from "http";
 
 const prisma = new PrismaClient();
 
@@ -26,5 +27,26 @@ async function getUser(){
  })
  console.log(res);
 
+} 
+
+interface updatePara {
+    firstName:string,
+    lastName:string
 }
-getUser();
+async function updateUser (email:string,{firstName ,lastName}:updatePara){
+        const res = await prisma.user.update({
+            where:{
+                email:email
+            },
+            data:{
+                firstName,
+                lastName
+            }
+        })
+        console.log(res);
+}
+// updateUser("sukhvir@gmail.com",{
+//     firstName:"Honey" ,
+//     lastName:"Singh"
+// });
+// getUser();

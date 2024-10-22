@@ -36,4 +36,22 @@ function getUser() {
         console.log(res);
     });
 }
-getUser();
+function updateUser(email_1, _a) {
+    return __awaiter(this, arguments, void 0, function* (email, { firstName, lastName }) {
+        const res = yield prisma.user.update({
+            where: {
+                email: email
+            },
+            data: {
+                firstName,
+                lastName
+            }
+        });
+        console.log(res);
+    });
+}
+updateUser("sukhvir@gmail.com", {
+    firstName: "Honey",
+    lastName: "Singh"
+});
+// getUser();
