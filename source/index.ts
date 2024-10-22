@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-async function insertUser(email:string,username: string, password: string, firstName: string, lastName: string) {
+async function insertUser(email:string, password: string, firstName: string, lastName: string) {
   const res = await prisma.user.create({
     data:{
         email,
@@ -18,3 +18,13 @@ async function insertUser(email:string,username: string, password: string, first
   console.log(res); 
   
 }
+
+
+async function getUser(){
+ const res = await prisma.user.findFirst({
+    where:{}
+ })
+ console.log(res);
+
+}
+getUser();
